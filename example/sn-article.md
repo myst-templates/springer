@@ -1,18 +1,27 @@
 ---
-title: Title
-short_title: Short title
+title: Article Title
+short_title: Short Title
 authors:
-  - name: Jane Doe
+  - given_name: First
+    surname: Author
     affiliations:
-      - University A
-      - Institute B
+      - Department, Organization, Street, City, 100190, State, Country
+      - Department, Organization, Street, City, 10587, State, Country
     corresponding: true
-    email: jane@myweb.com
-    website: https://myweb.com
-  - name: John Dee
+    email: iauthor@gmail.com
+  - given_name: Second 
+    surname: Author
     affiliations:
-      - Institute B
-      - Place C
+      - Department, Organization, Street, City, 10587, State, Country
+      - Department, Organization, Street, City, 610101, State, Country
+    email: iiauthor@gmail.com
+  - given_name: Third
+    surname: Author
+    affiliations:
+      - Department, Organization, Street, City, 100190, State, Country
+      - Department, Organization, Street, City, 10587, State, Country
+    email: iiiauthor@gmail.com
+
 keywords:
   - Keyword1
   - Keyword2
@@ -29,7 +38,7 @@ export:
 %% sample for unstructured abstract %%
 %%==================================%%
 
-+++ {"part": "abstract"}
++++{"part": "abstract"}
 The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. Authors are advised to check the author instructions for the journal they are submitting to for word limits and if structural elements like subheadings, citations, or equations are permitted.
 +++
 
