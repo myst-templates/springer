@@ -2,21 +2,18 @@
 title: Article Title
 short_title: Short Title
 authors:
-  - given_name: First
-    surname: Author
+  - name: First Author
     affiliations:
       - Department, Organization, Street, City, 100190, State, Country
       - Department, Organization, Street, City, 10587, State, Country
     corresponding: true
     email: iauthor@gmail.com
-  - given_name: Second 
-    surname: Author
+  - name: Second Author
     affiliations:
       - Department, Organization, Street, City, 10587, State, Country
       - Department, Organization, Street, City, 610101, State, Country
     email: iiauthor@gmail.com
-  - given_name: Third
-    surname: Author
+  - name: Third Author
     affiliations:
       - Department, Organization, Street, City, 100190, State, Country
       - Department, Organization, Street, City, 10587, State, Country
@@ -32,13 +29,14 @@ bibliography:
 export:
   - format: pdf+tex
     template: ../.
+    reference_style: mathphys 
 ---
 
 %%==================================%%
 %% sample for unstructured abstract %%
 %%==================================%%
 
-+++{"part": "abstract"}
++++ {"part": "abstract"}
 The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. Authors are advised to check the author instructions for the journal they are submitting to for word limits and if structural elements like subheadings, citations, or equations are permitted.
 +++
 
@@ -55,15 +53,10 @@ The abstract serves both as a general introduction to the topic and as a brief, 
 % \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
 
 
-
-
-
-
-
 (sec1)=
 # Introduction 
 
-The Introduction section, of referenced text \cite{bib1} expands on the background of the work (some overlap with the Abstract is acceptable). The introduction should not include subheadings.
+The Introduction section, of referenced text {cite:t}`bib1` expands on the background of the work (some overlap with the Abstract is acceptable). The introduction should not include subheadings.
 
 Springer Nature does not impose a strict layout as standard however authors are advised to check the individual requirements for the journal they are planning to submit to as there may be journal-level preferences. When preparing your text please also be aware that some stylistic choices are not supported in full text XML (publication version), including coloured font. These will not be replicated in the typeset article if it is accepted. 
 
@@ -86,9 +79,9 @@ Sample body text. Sample body text. Sample body text. Sample body text. Sample b
 (sec4)=
 # Equations
 
-Equations in \LaTeX\ can either be inline or on-a-line by itself (``display equations''). For
-inline equations use the \verb+$...$+ commands. E.g.: The equation
-$H\psi = E \psi$ is written via the command \verb+$H \psi = E \psi$+.
+Equations in $\LaTeX$ can either be inline or on-a-line by itself (``display equations''). For
+inline equations use the ```$...$``` commands. E.g.: The equation
+$H\psi = E \psi$ is written via the command ```$H \psi = E \psi$```.
 
 For display equations (with auto generated equation numbers)
 one can use the equation or align environments:
@@ -104,28 +97,28 @@ D_\mu &=  \partial_\mu - ig \frac{\lambda^a}{2} A^a_\mu \nonumber \\
 F^a_{\mu\nu} &= \partial_\mu A^a_\nu - \partial_\nu A^a_\mu + g f^{abc} A^b_\mu A^a_\nu
 \end{align}
 ```
-Notice the use of \verb+\nonumber+ in the align environment at the end
+Notice the use of ```\nonumber``` in the align environment at the end
 of each line, except the last, so as not to produce equation numbers on
-lines where no equation numbers are required. The \verb+\label{}+ command
+lines where no equation numbers are required. The ```\label{}``` command
 should only be used at the last line of an align environment where
-\verb+\nonumber+ is not used.
+```\nonumber``` is not used.
 ```{math}
 Y_\infty = \left( \frac{m}{\textrm{GeV}} \right)^{-3}
     \left[ 1 + \frac{3 \ln(m/\textrm{GeV})}{15}
     + \frac{\ln(c_2/5)}{15} \right]
 ```
-The class file also supports the use of \verb+\mathbb{}+, \verb+\mathscr{}+ and
-\verb+\mathcal{}+ commands. As such \verb+\mathbb{R}+, \verb+\mathscr{R}+
-and \verb+\mathcal{R}+ produces $\mathbb{R}$, $\mathscr{R}$ and $\mathcal{R}$
-respectively (refer Subsubsection~\ref{subsubsec2}).
+The class file also supports the use of ```\mathbb{}```, ```\mathscr{}``` and
+```\mathcal{}``` commands. As such ```\mathbb{R}```, ```\mathscr{R}```
+and ```\mathcal{R}``` produces $\mathbb{R}$, $\mathscr{R}$ and $\mathcal{R}$
+respectively (refer [Subsubsection](#subsubsec2)).
 
 (sec5)=
 # Tables
 
 Tables can be inserted via the normal table and tabular environment. To put
-footnotes inside tables you should use \verb+\footnotetext[]{...}+ tag.
-The footnote appears just below the table itself (refer Tables~\ref{tab1} and \ref{tab2}). 
-For the corresponding footnotemark use \verb+\footnotemark[...]+
+footnotes inside tables you should use ```\footnotetext[]{...}``` tag.
+The footnote appears just below the table itself (refer [Tables](#tab1) and [](#tab2)). 
+For the corresponding footnotemark use ```\footnotemark[...]```
 
 \begin{table}[h]
 \caption{Caption text}\label{tab1}%
@@ -145,10 +138,6 @@ row 3    & data 7   & data 8  & data 9\footnotemark[2]  \\
 
 The input format for the above table is as follows:
 
-%%=============================================%%
-%% For presentation purpose, we have included  %%
-%% \bigskip command. please ignore this.       %%
-%%=============================================%%
 ```{code-block} tex
 \begin{table}[<placement-specifier>]
 \caption{<table-caption>}\label{<table-label>}%
@@ -170,48 +159,48 @@ This is an example of table footnote.}
 \end{table}
 ```
 
-\begin{table}[h]
-\caption{Example of a lengthy table which is set to full textwidth}\label{tab2}
-\begin{tabular*}{\textwidth}{@{\extracolsep\fill}lcccccc}
-\toprule%
-& \multicolumn{3}{@{}c@{}}{Element 1\footnotemark[1]} & \multicolumn{3}{@{}c@{}}{Element 2\footnotemark[2]} \\\cmidrule{2-4}\cmidrule{5-7}%
-Project & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ \\
-\midrule
-Element 3  & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$\\
-Element 4  & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$\\
-\botrule
-\end{tabular*}
-\footnotetext{Note: This is an example of table footnote. This is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote.}
-\footnotetext[1]{Example for a first table footnote.}
-\footnotetext[2]{Example for a second table footnote.}
-\end{table}
+%%\begin{table}[h]
+%%\caption{Example of a lengthy table which is set to full textwidth}\label{tab2}
+%%\begin{tabular*}{\textwidth}{@{\extracolsep\fill}lcccccc}
+%%\toprule%
+%%& \multicolumn{3}{@{}c@{}}{Element 1\footnotemark[1]} & \multicolumn{3}{@{}c@{}}{Element 2\footnotemark[2]} \\\cmidrule{2-4}\cmidrule{5-7}%
+%%Project & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ \\
+%%\midrule
+%%Element 3  & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$\\
+%%Element 4  & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$\\
+%%\botrule
+%%\end{tabular*}
+%%\footnotetext{Note: This is an example of table footnote. This is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote.}
+%%\footnotetext[1]{Example for a first table footnote.}
+%%\footnotetext[2]{Example for a second table footnote.}
+%%\end{table}
 
 
-In case of double column layout, tables which do not fit in single column width should be set to full text width. For this, you need to use \verb+\begin{table*}+ \verb+...+ \verb+\end{table*}+ instead of \verb+\begin{table}+ \verb+...+ \verb+\end{table}+ environment. Lengthy tables which do not fit in textwidth should be set as rotated table. For this, you need to use \verb+\begin{sidewaystable}+ \verb+...+ \verb+\end{sidewaystable}+ instead of \verb+\begin{table*}+ \verb+...+ \verb+\end{table*}+ environment. This environment puts tables rotated to single column width. For tables rotated to double column width, use \verb+\begin{sidewaystable*}+ \verb+...+ \verb+\end{sidewaystable*}+.
+In case of double column layout, tables which do not fit in single column width should be set to full text width. For this, you need to use ```\begin{table*}...+ \end{table*}``` instead of ```begin{table}...\end{table}``` environment. Lengthy tables which do not fit in textwidth should be set as rotated table. For this, you need to use ```\begin{sidewaystable}...\end{sidewaystable}``` instead of ```\begin{table*}...\end{table*}``` environment. This environment puts tables rotated to single column width. For tables rotated to double column width, use ```\begin{sidewaystable*}...\end{sidewaystable*}```.
 
-\begin{sidewaystable}
-\caption{Tables which are too long to fit, should be written using the ``sidewaystable'' environment as shown here}\label{tab3}
-\begin{tabular*}{\textheight}{@{\extracolsep\fill}lcccccc}
-\toprule%
-& \multicolumn{3}{@{}c@{}}{Element 1\footnotemark[1]}& \multicolumn{3}{@{}c@{}}{Element\footnotemark[2]} \\\cmidrule{2-4}\cmidrule{5-7}%
-Projectile & Energy	& $\sigma_{calc}$ & $\sigma_{expt}$ & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ \\
-\midrule
-Element 3 & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$ \\
-Element 4 & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$ \\
-Element 5 & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$ \\
-Element 6 & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$ \\
-\botrule
-\end{tabular*}
-\footnotetext{Note: This is an example of table footnote this is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote.}
-\footnotetext[1]{This is an example of table footnote.}
-\end{sidewaystable}
+%%\begin{sidewaystable}
+%%\caption{Tables which are too long to fit, should be written using the ``sidewaystable'' environment as shown here}\label{tab3}
+%%\begin{tabular*}{\textheight}{@{\extracolsep\fill}lcccccc}
+%%\toprule%
+%%& \multicolumn{3}{@{}c@{}}{Element 1\footnotemark[1]}& \multicolumn{3}{@{}c@{}}{Element\footnotemark[2]} \\\cmidrule{2-4}\cmidrule{5-7}%
+%%Projectile & Energy	& $\sigma_{calc}$ & $\sigma_{expt}$ & Energy & $\sigma_{calc}$ & $\sigma_{expt}$ \\
+%%\midrule
+%%Element 3 & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$ \\
+%%Element 4 & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$ \\
+%%Element 5 & 990 A & 1168 & $1547\pm12$ & 780 A & 1166 & $1239\pm100$ \\
+%%Element 6 & 500 A & 961  & $922\pm10$  & 900 A & 1268 & $1092\pm40$ \\
+%%\botrule
+%%\end{tabular*}
+%%\footnotetext{Note: This is an example of table footnote this is an example of table footnote this is an example of table footnote this is an example of~table footnote this is an example of table footnote.}
+%%\footnotetext[1]{This is an example of table footnote.}
+%%\end{sidewaystable}
 
 (sec6)=
 # Figures
 
-As per the \LaTeX\ standards you need to use eps images for \LaTeX\ compilation and \verb+pdf/jpg/png+ images for \verb+PDFLaTeX+ compilation. This is one of the major difference between \LaTeX\ and \verb+PDFLaTeX+. Each image should be from a single input .eps/vector image file. Avoid using subfigures. The command for inserting images for \LaTeX\ and \verb+PDFLaTeX+ can be generalized. The package used to insert images in \verb+LaTeX/PDFLaTeX+ is the graphicx package. Figures can be inserted via the normal figure environment as shown in the below example:
+As per the $\LaTeX$ standards you need to use eps images for $\LaTeX$ compilation and ```pdf/jpg/png``` images for ```PDFLaTeX``` compilation. This is one of the major difference between $\LaTeX$ and ```PDFLaTeX```. Each image should be from a single input .eps/vector image file. Avoid using subfigures. The command for inserting images for $\LaTeX$ and ```PDFLaTeX``` can be generalized. The package used to insert images in $\LaTeX$/```PDFLaTeX``` is the graphicx package. Figures can be inserted via the normal figure environment as shown in the below example:
 
-```{code-block} latex
+```{code-block} tex
 \begin{figure}[<placement-specifier>]
 \centering
 \includegraphics{<eps-file>}
@@ -219,21 +208,20 @@ As per the \LaTeX\ standards you need to use eps images for \LaTeX\ compilation 
 \end{figure}
 ```
 
-:::{figure} fig.eps
-:width: 0.9
+```{figure} fig.pdf
 :name: fig1
 
 This is a widefig. This is an example of long caption this is an example of long caption  this is an example of long caption this is an example of long caption
-:::
+```
 
-In case of double column layout, the above format puts figure captions/images to single column width. To get spanned images, we need to provide \verb+\begin{figure*}+ \verb+...+ \verb+\end{figure*}+.
+In case of double column layout, the above format puts figure captions/images to single column width. To get spanned images, we need to provide ```\begin{figure*}...\end{figure*}```.
 
-For sample purpose, we have included the width of images in the optional argument of \verb+\includegraphics+ tag. Please ignore this. 
+For sample purpose, we have included the width of images in the optional argument of ```\includegraphics``` tag. Please ignore this. 
 
 (sec7)=
 # Algorithms, Program codes and Listings
 
-Packages \verb+algorithm+, \verb+algorithmicx+ and \verb+algpseudocode+ are used for setting algorithms in \LaTeX\ using the format:
+Packages ```algorithm```, ```algorithmicx``` and ```algpseudocode``` are used for setting algorithms in $\LaTeX$ using the format:
 
 ```{code-block} tex
 \begin{algorithm}
@@ -244,9 +232,9 @@ Packages \verb+algorithm+, \verb+algorithmicx+ and \verb+algpseudocode+ are used
 \end{algorithm}
 ```
 
-You may refer above listed package documentations for more details before setting \verb+algorithm+ environment. For program codes, the ``verbatim'' package is required and the command to be used is \verb+\begin{verbatim}+ \verb+...+ \verb+\end{verbatim}+. 
+You may refer above listed package documentations for more details before setting ```algorithm``` environment. For program codes, the ``verbatim'' package is required and the command to be used is ```\begin{verbatim}...\end{verbatim}```. 
 
-Similarly, for \verb+listings+, use the \verb+listings+ package. \verb+\begin{lstlisting}+ \verb+...+ \verb+\end{lstlisting}+ is used to set environments similar to \verb+verbatim+ environment. Refer to the \verb+lstlisting+ package documentation for more details.
+Similarly, for ```listings```, use the ```listings``` package. ```\begin{lstlisting}...\end{lstlisting}``` is used to set environments similar to ```\verbatim``` environment. Refer to the ```lstlisting``` package documentation for more details.
 
 A fast exponentiation procedure:
 
@@ -270,37 +258,35 @@ proc expt($x,n$) $\equiv$
 end
 ```
 
-\begin{algorithm}
-\caption{Calculate $y = x^n$}\label{algo1}
-\begin{algorithmic}[1]
-\Require $n \geq 0 \vee x \neq 0$
-\Ensure $y = x^n$ 
-\State $y \Leftarrow 1$
-\If{$n < 0$}\label{algln2}
-        \State $X \Leftarrow 1 / x$
-        \State $N \Leftarrow -n$
-\Else
-        \State $X \Leftarrow x$
-        \State $N \Leftarrow n$
-\EndIf
-\While{$N \neq 0$}
-        \If{$N$ is even}
-            \State $X \Leftarrow X \times X$
-            \State $N \Leftarrow N / 2$
-        \Else[$N$ is odd]
-            \State $y \Leftarrow y \times X$
-            \State $N \Leftarrow N - 1$
-        \EndIf
-\EndWhile
-\end{algorithmic}
-\end{algorithm}
+%%\begin{algorithm}
+%%\caption{Calculate $y = x^n$}\label{algo1}
+%%\begin{algorithmic}[1]
+%%\Require $n \geq 0 \vee x \neq 0$
+%%\Ensure $y = x^n$ 
+%%\State $y \Leftarrow 1$
+%%\If{$n < 0$}\label{algln2}
+%%        \State $X \Leftarrow 1 / x$
+%%        \State $N \Leftarrow -n$
+%%\Else
+%%        \State $X \Leftarrow x$
+%%        \State $N \Leftarrow n$
+%%\EndIf
+%%\While{$N \neq 0$}
+%%        \If{$N$ is even}
+%%            \State $X \Leftarrow X \times X$
+%%            \State $N \Leftarrow N / 2$
+%%        \Else[$N$ is odd]
+%%            \State $y \Leftarrow y \times X$
+%%            \State $N \Leftarrow N - 1$
+%%        \EndIf
+%%\EndWhile
+%%\end{algorithmic}
+%%\end{algorithm}
 
 
-\bigskip
-\begin{minipage}{\hsize}%
-\lstset{frame=single,framexleftmargin=-1pt,framexrightmargin=-17pt,framesep=12pt,linewidth=0.98\textwidth,language=pascal}% Set your language (you can change the language for each code-block optionally)
+
+%%\lstset{frame=single,framexleftmargin=-1pt,framexrightmargin=-17pt,framesep=12pt,linewidth=0.98\textwidth,language=pascal}% Set your language (you can change the language for each code-block optionally)
 %%% Start your code-block
-\begin{lstlisting}
 ```{code-block} pascal
 for i:=maxint to 0 do
 begin
@@ -315,43 +301,43 @@ Write('Pascal keywords.');
 # Cross referencing
 
 Environments such as figure, table, equation and align can have a label
-declared via the \verb+\label{#label}+ command. For figures and table
-environments use the \verb+\label{}+ command inside or just
-below the \verb+\caption{}+ command. You can then use the
-\verb+\ref{#label}+ command to cross-reference them. As an example, consider
-the label declared for Figure~[](fig1) which is
-\verb+\label{fig1}+. To cross-reference it, use the command 
-\verb+Figure \ref{fig1}+, for which it comes up as
-``Figure~\ref{fig1}''. 
+declared via the ```\label{#label}``` command. For figures and table
+environments use the ```\label{}``` command inside or just
+below the ```\caption{}``` command. You can then use the
+```\ref{#label}``` command to cross-reference them. As an example, consider
+the label declared for [](#fig1) which is
+```\label{fig1}```. To cross-reference it, use the command 
+```Figure \ref{fig1}```, for which it comes up as
+[](#fig1). 
 
-To reference line numbers in an algorithm, consider the label declared for the line number 2 of Algorithm~\ref{algo1} is \verb+\label{algln2}+. To cross-reference it, use the command \verb+\ref{algln2}+ for which it comes up as line~\ref{algln2} of Algorithm~\ref{algo1}.
+To reference line numbers in an algorithm, consider the label declared for the line number 2 of [Algorithm](#algo1) is ```\label{algln2}```. To cross-reference it, use the command ```\ref{algln2}``` for which it comes up as line~[](#algln2) of [Algorithm](#algo1).
 
 (subsec7)=
 ## Details on reference citations
 
-Standard \LaTeX\ permits only numerical citations. To support both numerical and author-year citations this template uses \verb+natbib+ \LaTeX\ package. For style guidance please refer to the template user manual.
+Standard $\LaTeX$ permits only numerical citations. To support both numerical and author-year citations this template uses ```natbib```-$\LaTeX$ package. For style guidance please refer to the template user manual.
 
-Here is an example for \verb+\cite{...}+: \cite{bib1}. Another example for \verb+\citep{...}+: \citep{bib2}. For author-year citation mode, \verb+\cite{...}+ prints Jones et al. (1990) and \verb+\citep{...}+ prints (Jones et al., 1990).
+Here is an example for ```\cite{...}```: \cite{bib1}. Another example for ```\citep{...}```: \citep{bib2}. For author-year citation mode, ```\cite{...}``` prints Jones et al. (1990) and ```\citep{...}``` prints (Jones et al., 1990).
 
 All cited bib entries are printed at the end of this article: {cite:t}`bib3`, {cite:t}`bib4`, {cite:t}`bib5`, {cite:t}`bib6`, {cite:t}`bib7`, {cite:t}`bib8`, {cite:t}`bib9`, {cite:t}`bib10`, {cite:t}`bib11`, {cite:t}`bib12` and {cite:t}`bib13`.
 
 (sec10)=
 # Examples for theorem like environments
 
-For theorem like environments, we require \verb+amsthm+ package. There are three types of predefined theorem styles exists---\verb+thmstyleone+, \verb+thmstyletwo+ and \verb+thmstylethree+ 
+For theorem like environments, we require ```amsthm``` package. There are three types of predefined theorem styles exists---```thmstyleone```, ```thmstyletwo``` and ```thmstylethree```.
 
 %%=============================================%%
 %% For presentation purpose, we have included  %%
 %% \bigskip command. please ignore this.       %%
 %%=============================================%%
-\bigskip
-\begin{tabular}{|l|p{19pc}|}
-\hline
-\verb+thmstyleone+ & Numbered, theorem head in bold font and theorem text in italic style \\\hline
-\verb+thmstyletwo+ & Numbered, theorem head in roman font and theorem text in italic style \\\hline
-\verb+thmstylethree+ & Numbered, theorem head in bold font and theorem text in roman style \\\hline
-\end{tabular}
-\bigskip
+%%\bigskip
+%%\begin{tabular}{|l|p{19pc}|}
+%%\hline
+%%\verb+thmstyleone+ & Numbered, theorem head in bold font and theorem text in italic style \\\hline
+%%\verb+thmstyletwo+ & Numbered, theorem head in roman font and theorem text in italic style \\\hline
+%%\verb+thmstylethree+ & Numbered, theorem head in bold font and theorem text in roman style \\\hline
+%%\end{tabular}
+%%\bigskip
 %%=============================================%%
 %% For presentation purpose, we have included  %%
 %% \bigskip command. please ignore this.       %%
@@ -359,90 +345,128 @@ For theorem like environments, we require \verb+amsthm+ package. There are three
 
 For mathematics journals, theorem styles can be included as shown in the following examples:
 
-\begin{theorem}[Theorem subhead]\label{thm1}
+%%\begin{theorem}[Theorem subhead]\label{thm1}
+%%Example theorem text. Example theorem text. Example theorem text. Example theorem text. Example theorem text. 
+%%Example theorem text. Example theorem text. Example theorem text. Example theorem text. Example theorem text. 
+%%Example theorem text. 
+%%\end{theorem}
+
+:::{prf:theorem} Theorem subhead
+:label: thm1
 Example theorem text. Example theorem text. Example theorem text. Example theorem text. Example theorem text. 
 Example theorem text. Example theorem text. Example theorem text. Example theorem text. Example theorem text. 
 Example theorem text. 
-\end{theorem}
+:::
 
 Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
 
-\begin{proposition}
+%%\begin{proposition}
+%%Example proposition text. Example proposition text. Example proposition text. Example proposition text. Example proposition text. 
+%%Example proposition text. Example proposition text. Example proposition text. Example proposition text. Example proposition text. 
+%%\end{proposition}
+
+:::{prf:proposition}
+:label: prop1
 Example proposition text. Example proposition text. Example proposition text. Example proposition text. Example proposition text. 
-Example proposition text. Example proposition text. Example proposition text. Example proposition text. Example proposition text. 
-\end{proposition}
+Example proposition text. Example proposition text. Example proposition text. Example proposition text. Example proposition text.
+:::
 
 Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
 
-\begin{example}
+%%\begin{example}
+%%Phasellus adipiscing semper elit. Proin fermentum massa
+%%ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend
+%%at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. 
+%%\end{example}
+
+:::{prf:example}
 Phasellus adipiscing semper elit. Proin fermentum massa
 ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend
 at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. 
-\end{example}
+:::
 
 Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
 
-\begin{remark}
+%%\begin{remark}
+%%Phasellus adipiscing semper elit. Proin fermentum massa
+%%ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend
+%%at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. 
+%%\end{remark}
+
+:::{prf:remark}
 Phasellus adipiscing semper elit. Proin fermentum massa
 ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend
-at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. 
-\end{remark}
+at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem.
+:::
 
 Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
 
-\begin{definition}[Definition sub head]
-Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. 
-\end{definition}
+%%\begin{definition}[Definition sub head]
+%%Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. 
+%%\end{definition}
 
-Additionally a predefined ``proof'' environment is available: \verb+\begin{proof}+ \verb+...+ \verb+\end{proof}+. This prints a ``Proof'' head in italic font style and the ``body text'' in roman font style with an open square at the end of each proof environment. 
+:::{prf:definition} Definition sub head
+Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text.
+:::
 
-\begin{proof}
+Additionally a predefined `proof` environment is available: ```\begin{proof}...\end{proof}```. This prints a `Proof` head in italic font style and the `body text` in roman font style with an open square at the end of each proof environment. 
+
+%%\begin{proof}
+%%Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. 
+%%\end{proof}
+
+:::{prf:proof}
 Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. 
-\end{proof}
+:::
 
 Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
 
-\begin{proof}[Proof of Theorem~{\upshape\ref{thm1}}]
+%%\begin{proof}[Proof of Theorem~{\upshape\ref{thm1}}]
+%%Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. 
+%%\end{proof}
+
+:::{prf:proof} Proof of [](#thm1)
 Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. 
-\end{proof}
+:::
 
-\noindent
-For a quote environment, use \verb+\begin{quote}...\end{quote}+
-\begin{quote}
-Quoted text example. Aliquam porttitor quam a lacus. Praesent vel arcu ut tortor cursus volutpat. In vitae pede quis diam bibendum placerat. Fusce elementum
-convallis neque. Sed dolor orci, scelerisque ac, dapibus nec, ultricies ut, mi. Duis nec dui quis leo sagittis commodo.
-\end{quote}
+For a quote environment, use `\begin{quote}...\end{quote}`
+%%\begin{quote}
+%%Quoted text example. Aliquam porttitor quam a lacus. Praesent vel arcu ut tortor cursus volutpat. In vitae pede quis diam bibendum placerat. Fusce elementum
+%%convallis neque. Sed dolor orci, scelerisque ac, dapibus nec, ultricies ut, mi. Duis nec dui quis leo sagittis commodo.
+%%\end{quote}
 
-Sample body text. Sample body text. Sample body text. Sample body text. Sample body text (refer Figure~\ref{fig1}). Sample body text. Sample body text. Sample body text (refer Table~\ref{tab3}). 
+> Quoted text example. Aliquam porttitor quam a lacus. Praesent vel arcu ut tortor cursus volutpat. In vitae pede quis diam bibendum placerat. Fusce elementum convallis neque. Sed dolor orci, scelerisque ac, dapibus nec, ultricies ut, mi. Duis nec dui quis leo sagittis commodo.
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text (refer [](#fig1)). Sample body text. Sample body text. Sample body text (refer Table [](#tab3)). 
 
 (sec11)=
 # Methods
 
 Topical subheadings are allowed. Authors must ensure that their Methods section includes adequate experimental and characterization data necessary for others in the field to reproduce their work. Authors are encouraged to include RIIDs where appropriate. 
 
-__Ethical approval declarations__ (only required where applicable) Any article reporting experiment/s carried out on (i)~live vertebrate (or higher invertebrates), (ii)~humans or (iii)~human samples must include an unambiguous statement within the methods section that meets the following requirements: 
+__Ethical approval declarations__ (only required where applicable) Any article reporting experiment/s carried out on (i) live vertebrate (or higher invertebrates), (ii) humans or (iii) human samples must include an unambiguous statement within the methods section that meets the following requirements: 
 
 
-. Approval: a statement which confirms that all experimental protocols were approved by a named institutional and/or licensing committee. Please identify the approving body in the methods section
+1. Approval: a statement which confirms that all experimental protocols were approved by a named institutional and/or licensing committee. Please identify the approving body in the methods section
 
-. Accordance: a statement explicitly saying that the methods were carried out in accordance with the relevant guidelines and regulations
+2. Accordance: a statement explicitly saying that the methods were carried out in accordance with the relevant guidelines and regulations
 
-. Informed consent (for experiments involving humans or human tissue samples): include a statement confirming that informed consent was obtained from all participants and/or their legal guardian/s
+3. Informed consent (for experiments involving humans or human tissue samples): include a statement confirming that informed consent was obtained from all participants and/or their legal guardian/s
 
 
-If your manuscript includes potentially identifying patient/participant information, or if it describes human transplantation research, or if it reports results of a clinical trial then  additional information will be required. Please visit (\url{https://www.nature.com/nature-research/editorial-policies}) for Nature Portfolio journals, (\url{https://www.springer.com/gp/authors-editors/journal-author/journal-author-helpdesk/publishing-ethics/14214}) for Springer Nature journals, or (\url{https://www.biomedcentral.com/getpublished/editorial-policies\#ethics+and+consent}) for BMC.
+If your manuscript includes potentially identifying patient/participant information, or if it describes human transplantation research, or if it reports results of a clinical trial then  additional information will be required. Please visit ([https://www.nature.com/nature-research/editorial-policies](https://www.nature.com/nature-research/editorial-policies)) for Nature Portfolio journals, ([https://www.springer.com/gp/authors-editors/journal-author/journal-author-helpdesk/publishing-ethics/14214](https://www.springer.com/gp/authors-editors/journal-author/journal-author-helpdesk/publishing-ethics/14214)) for Springer Nature journals, or ([https://www.biomedcentral.com/getpublished/editorial-policies\#ethics+and+consent](https://www.biomedcentral.com/getpublished/editorial-policies\#ethics+and+consent)) for BMC.
 
 (sec12)=
 # Discussion
 
-Discussions should be brief and focused. In some disciplines use of Discussion or `Conclusion' is interchangeable. It is not mandatory to use both. Some journals prefer a section `Results and Discussion' followed by a section `Conclusion'. Please refer to Journal-level guidance for any specific requirements. 
+Discussions should be brief and focused. In some disciplines use of Discussion or `Conclusion` is interchangeable. It is not mandatory to use both. Some journals prefer a section `Results and Discussion` followed by a section `Conclusion`. Please refer to Journal-level guidance for any specific requirements. 
 
 (sec13)=
 # Conclusion
 
 Conclusions may be used to restate your hypothesis or research question, restate your major findings, explain the relevance and the added value of your work, highlight any limitations of your study, describe future directions for research and recommendations. 
 
-In some disciplines use of Discussion or 'Conclusion' is interchangeable. It is not mandatory to use both. Please refer to Journal-level guidance for any specific requirements. 
+In some disciplines use of Discussion or `Conclusion` is interchangeable. It is not mandatory to use both. Please refer to Journal-level guidance for any specific requirements. 
 
 
 +++ {"part": "supplementary_information"}
@@ -481,22 +505,22 @@ If any of the sections are not relevant to your manuscript, please include the h
 %% For presentation purpose, we have included        %%
 %% \bigskip command. please ignore this.             %%
 %%===================================================%%
-\bigskip
-\begin{flushleft}%
+%%\bigskip
+%%\begin{flushleft}%
 Editorial Policies for:
 
-\bigskip\noindent
-Springer journals and proceedings: \url{https://www.springer.com/gp/editorial-policies}
+%%\bigskip\noindent
+Springer journals and proceedings: [https://www.springer.com/gp/editorial-policie](https://www.springer.com/gp/editorial-policies)
 
-\bigskip\noindent
-Nature Portfolio journals: \url{https://www.nature.com/nature-research/editorial-policies}
+%%\bigskip\noindent
+Nature Portfolio journals: [https://www.nature.com/nature-research/editorial-policies](https://www.nature.com/nature-research/editorial-policies)
 
-\bigskip\noindent
-\textit{Scientific Reports}: \url{https://www.nature.com/srep/journal-policies/editorial-policies}
+%%\bigskip\noindent
+_Scientific Reports_: [https://www.nature.com/srep/journal-policies/editorial-policies](https://www.nature.com/srep/journal-policies/editorial-policies)
 
-\bigskip\noindent
-BMC journals: \url{https://www.biomedcentral.com/getpublished/editorial-policies}
-\end{flushleft}
+%\bigskip\noindent
+BMC journals: [https://www.biomedcentral.com/getpublished/editorial-policies](https://www.biomedcentral.com/getpublished/editorial-policies)
+%%\end{flushleft}
 
 +++ {"part": "appendix"}
 
@@ -505,31 +529,26 @@ BMC journals: \url{https://www.biomedcentral.com/getpublished/editorial-policies
 
 An appendix contains supplementary information that is not an essential part of the text itself but which may be helpful in providing a more comprehensive understanding of the research problem or it is information that is too cumbersome to be included in the body of the paper.
 
-%%=============================================%%
-%% For submissions to Nature Portfolio Journals %%
-%% please use the heading ``Extended Data''.   %%
-%%=============================================%%
+
+For submissions to Nature Portfolio Journals please use the heading `Extended Data`.
+
 
 %%=============================================================%%
 %% Sample for another appendix section			       %%
 %%=============================================================%%
+(secA2)=
+# Example of another appendix section
 
-%% \section{Example of another appendix section}\label{secA2}%
-%% Appendices may be used for helpful, supporting or essential material that would otherwise 
-%% clutter, break up or be distracting to the text. Appendices can consist of sections, figures, 
-%% tables and equations etc.
+Appendices may be used for helpful, supporting or essential material that would otherwise 
+clutter, break up or be distracting to the text. Appendices can consist of sections, figures, tables and equations etc.
 
 +++
 
-%%===========================================================================================%%
-%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
-%% system, please include the references within the manuscript file itself. You may do this  %%
-%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
-%% file, and delete the associated \verb+\bibliography+ commands.                            %%
-%%===========================================================================================%%
 
-%\bibliography{sn-bibliography}% common bib file
-%% if required, the content of .bbl file can be included here once bbl is generated
-%%\input sn-article.bbl
+ If you are submitting to one of the Nature Portfolio journals, using the eJP submission   
+ system, please include the references within the manuscript file itself. You may do this  
+by copying the reference list from your .bbl file, paste it into the main manuscript `.tex`
+file, and delete the associated `bibliography` commands.                            %%
 
 
+`\bibliography{sn-bibliography}` common bib file, if required, the content of .bbl file can be included here once bbl is generated `\input sn-article.bbl`.
