@@ -60,11 +60,15 @@ parts:
 doc:
   - id: title
     required: true
+  - id: short_title
+    required: false
   - id: bibliography
   - id: subtitle
     required: false
   - id: keywords
     required: false
+  - id: authors
+    required: true
 options:
   - id: formatting
     required: false
