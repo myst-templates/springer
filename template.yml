@@ -110,6 +110,12 @@ options:
 files:
   - template.tex
   - sn-jnl.cls
+  - sn-apacite.bst
+  - sn-aps.bst
+  - sn-chicago.bst
+  - sn-mathphys.bst
+  - sn-nature.bst
+  - sn-vancouver.bst
 packages:
   - algorithm
   - algorithmicx
