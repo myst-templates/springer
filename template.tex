@@ -1,18 +1,16 @@
 \documentclass[
-    [#- if options.pdflatex -#]
-    pdflatex 
-    [#- else -#][#- endif -#]
-    [#- if options.referee -#], referee   [#- endif -#]
-    [#- if options.numbered -#], Numbered [#- endif -#]
-    [#- if options.reference_style == "default"   -#], default      [#- endif -#]
-    [#- if options.reference_style == "apa"       -#], sn-apa       [#- endif -#]
-    [#- if options.reference_style == "aps"       -#], sn-aps       [#- endif -#]
-    [#- if options.reference_style == "basic"     -#], sn-basic     [#- endif -#]
-    [#- if options.reference_style == "chicago"   -#], sn-chicago   [#- endif -#]
-    [#- if options.reference_style == "nature"    -#], sn-nature    [#- endif -#]
-    [#- if options.reference_style == "mathphys"  -#], sn-mathphys  [#- endif -#]
-    [#- if options.reference_style == "vancouver" -#], sn-vancouver [#- endif -#]
-    [#- if options.formatting == "twocolumn" -#]     , iicol        [#- endif -#]
+    [#- if options.reference_style == "default"   -#] default      [#- endif -#]
+    [#- if options.reference_style == "apa"       -#] sn-apa       [#- endif -#]
+    [#- if options.reference_style == "aps"       -#] sn-aps       [#- endif -#]
+    [#- if options.reference_style == "basic"     -#] sn-basic     [#- endif -#]
+    [#- if options.reference_style == "chicago"   -#] sn-chicago   [#- endif -#]
+    [#- if options.reference_style == "nature"    -#] sn-nature    [#- endif -#]
+    [#- if options.reference_style == "mathphys"  -#] sn-mathphys  [#- endif -#]
+    [#- if options.reference_style == "vancouver" -#] sn-vancouver [#- endif -#]
+    [#- if options.pdflatex -#]                      , pdflatex    [#- endif -#]
+    [#- if options.referee -#]                       , referee     [#- endif -#]
+    [#- if options.numbered -#]                      , Numbered    [#- endif -#]
+    [#- if options.formatting == "twocolumn" -#]     , iicol       [#- endif -#]
     ]{sn-jnl}
 
 
