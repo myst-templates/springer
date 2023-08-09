@@ -7,9 +7,10 @@
     [#- if options.reference_style == "nature"    -#] sn-nature    [#- endif -#]
     [#- if options.reference_style == "mathphys"  -#] sn-mathphys  [#- endif -#]
     [#- if options.reference_style == "vancouver" -#] sn-vancouver [#- endif -#]
-    [#- if options.pdflatex -#]                      , pdflatex    [#- endif -#]
+    [#- if options.pdf_latex -#]                     , pdflatex    [#- endif -#]
     [#- if options.referee -#]                       , referee     [#- endif -#]
-    [#- if options.numbered -#]                      , Numbered    [#- endif -#]
+    [#- if options.line_numbers -#]                  , lineno      [#- endif -#]
+    [#- if options.numbered_referencing -#]          , numbered_referencing [#- endif -#]
     [#- if options.formatting == "twocolumn" -#]     , iicol       [#- endif -#]
     ]{sn-jnl}
 
@@ -46,7 +47,10 @@
 \newtheorem{definition}{Definition}
 
 \raggedbottom
-%%\unnumbered% uncomment this for unnumbered level heads
+[#- if options.unnumbered_headings -#]
+%%% for unnumbered level heads
+\unnumbered   
+[#- endif -#]
 
 \begin{document}
 

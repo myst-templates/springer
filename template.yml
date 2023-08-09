@@ -82,7 +82,13 @@ options:
     type: boolean
     default: false
     description: Mark the document as draft
-  - id: numbered
+  - id: line_numbers
+    type: boolean
+    default: false
+  - id: unnumbered_headings
+    type: boolean
+    default: false
+  - id: numbered_referencing
     type: boolean
     default: false
     description: >
@@ -90,7 +96,7 @@ options:
       Numbered referencing. By default the style follows the most common style.
       To switch between the options you can active (true) or deactivate (false)
       the `numbered` option.    
-  - id: pdflatex
+  - id: pdf_latex
     type: boolean
     default: true
     description: When compiling with pdflatex/xelatex use pdflatex option.
