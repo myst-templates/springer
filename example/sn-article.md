@@ -90,10 +90,8 @@ one can use the equation or align environments:
 where,
 ```{math}
 :label: eq2
-\begin{align}
 D_\mu &=  \partial_\mu - ig \frac{\lambda^a}{2} A^a_\mu \nonumber \\
 F^a_{\mu\nu} &= \partial_\mu A^a_\nu - \partial_\nu A^a_\mu + g f^{abc} A^b_\mu A^a_\nu
-\end{align}
 ```
 Notice the use of ```\nonumber``` in the align environment at the end
 of each line, except the last, so as not to produce equation numbers on
