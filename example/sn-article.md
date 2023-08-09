@@ -79,9 +79,7 @@ Sample body text. Sample body text. Sample body text. Sample body text. Sample b
 (sec4)=
 # Equations
 
-Equations in $\LaTeX$ can either be inline or on-a-line by itself (``display equations''). For
-inline equations use the ```$...$``` commands. E.g.: The equation
-$H\psi = E \psi$ is written via the command ```$H \psi = E \psi$```.
+Equations in LaTex can either be inline or on-a-line by itself (``display equations''). For inline equations use the ```$...$``` commands. E.g.: The equation $H\psi = E \psi$ is written via the command ```$H\psi = E\psi$```.
 
 For display equations (with auto generated equation numbers)
 one can use the equation or align environments:
@@ -198,7 +196,7 @@ In case of double column layout, tables which do not fit in single column width 
 (sec6)=
 # Figures
 
-As per the $\LaTeX$ standards you need to use eps images for $\LaTeX$ compilation and ```pdf/jpg/png``` images for ```PDFLaTeX``` compilation. This is one of the major difference between $\LaTeX$ and ```PDFLaTeX```. Each image should be from a single input .eps/vector image file. Avoid using subfigures. The command for inserting images for $\LaTeX$ and ```PDFLaTeX``` can be generalized. The package used to insert images in $\LaTeX$/```PDFLaTeX``` is the graphicx package. Figures can be inserted via the normal figure environment as shown in the below example:
+As per the LaTeX standards you need to use eps images for LaTeX compilation and ```pdf/jpg/png``` images for ```PDFLaTeX``` compilation. This is one of the major difference between LaTeX and ```PDFLaTeX```. Each image should be from a single input .eps/vector image file. Avoid using subfigures. The command for inserting images for LaTeX and ```PDFLaTeX``` can be generalized. The package used to insert images in LaTeX/```PDFLaTeX``` is the graphicx package. Figures can be inserted via the normal figure environment as shown in the below example:
 
 ```{code-block} tex
 \begin{figure}[<placement-specifier>]
@@ -221,7 +219,7 @@ For sample purpose, we have included the width of images in the optional argumen
 (sec7)=
 # Algorithms, Program codes and Listings
 
-Packages ```algorithm```, ```algorithmicx``` and ```algpseudocode``` are used for setting algorithms in $\LaTeX$ using the format:
+Packages ```algorithm```, ```algorithmicx``` and ```algpseudocode``` are used for setting algorithms in LaTeX using the format:
 
 ```{code-block} tex
 \begin{algorithm}
@@ -315,7 +313,7 @@ To reference line numbers in an algorithm, consider the label declared for the l
 (subsec7)=
 ## Details on reference citations
 
-Standard $\LaTeX$ permits only numerical citations. To support both numerical and author-year citations this template uses ```natbib```-$\LaTeX$ package. For style guidance please refer to the template user manual.
+Standard LaTeX permits only numerical citations. To support both numerical and author-year citations this template uses ```natbib```-LaTeX package. For style guidance please refer to the template user manual.
 
 Here is an example for ```\cite{...}```: \cite{bib1}. Another example for ```\citep{...}```: \citep{bib2}. For author-year citation mode, ```\cite{...}``` prints Jones et al. (1990) and ```\citep{...}``` prints (Jones et al., 1990).
 
