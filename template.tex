@@ -57,10 +57,17 @@
 \title[[-doc.short_title-]]{[-doc.title-]}
 
 [#- for author in doc.authors #]
+[#- if author.corresponding #]
+\author*[[- author.affiliations | join(',', 'index') -]]{
+    [#- if author.given_name #]\fnm{[-author.given_name-]} [# endif -#]
+    [#- if author.surname #]   \sur{[-author.surname-]}    [# endif -#]
+    [#- if author.email #]     \email{[-author.email-]}    [# endif -#]} 
+[# else #]
 \author[[- author.affiliations | join(',', 'index') -]]{
     [#- if author.given_name #]\fnm{[-author.given_name-]} [# endif -#]
     [#- if author.surname #]   \sur{[-author.surname-]}    [# endif -#]
     [#- if author.email #]     \email{[-author.email-]}    [# endif -#]}     
+[# endif -#]
 [# endfor -#]
 
 [# for affiliation in doc.affiliations #]
