@@ -30,6 +30,10 @@ export:
   - format: pdf+tex
     template: ../.
     reference_style: mathphys 
+    formatting: twocolumn
+    line_numbers: false
+    numbered_referencing: false
+    unnumbered_headings: false
 ---
 
 %%==================================%%
