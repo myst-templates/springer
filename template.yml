@@ -113,6 +113,20 @@ options:
       - vancouver
       - apa
       - chicago
+  - id: theorem_style
+    type: choice
+    default: none
+    choices:
+      - none
+      - one
+      - two
+      - three
+  - id: theorem_sectionwise_numbering
+    type: boolean
+    default: false
+  - id: proposition_by_theorem_numbering
+    type: boolean
+    default: false
 files:
   - template.tex
   - sn-jnl.cls

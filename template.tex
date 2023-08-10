@@ -34,24 +34,36 @@
 
 [- IMPORTS -]
 
+\raggedbottom
+[#- if options.unnumbered_headings #]
+\unnumbered   
+[# endif -#]
 
+[#- if options.theorem_style == "one" #]
 \theoremstyle{thmstyleone}
-\newtheorem{theorem}{Theorem}
-\newtheorem{proposition}[theorem]{Proposition}% 
-
-
+[# endif -#]
+[#- if options.theorem_style == "two" #]
 \theoremstyle{thmstyletwo}
+[# endif -#]
+[#- if options.theorem_style == "three" #]
+\theoremstyle{thmstylethree}
+[# endif -#]
+[#- if options.theorem_style != "none" #]
+[#- if options.theorem_sectionwise_numbering #]
+\newtheorem{theorem}{Theorem}[section]
+[# else #]
+\newtheorem{theorem}{Theorem}
+[# endif -#]
+
+[#- if options.proposition_by_theorem_numbering #]
+\newtheorem{proposition}[theorem]{Proposition}
+[# else #]
+\newtheorem{proposition}{Proposition}
+[# endif -#]
 \newtheorem{example}{Example}
 \newtheorem{remark}{Remark}
-
-\theoremstyle{thmstylethree}
 \newtheorem{definition}{Definition}
-
-\raggedbottom
-[#- if options.unnumbered_headings -#]
-%%% for unnumbered level heads
-\unnumbered   
-[#- endif -#]
+[# endif -#]
 
 \begin{document}
 
@@ -81,9 +93,9 @@
 [# endif -#]
 [# endfor -#]
 
-[# for affiliation in doc.affiliations #]
+[#- for affiliation in doc.affiliations #]
 \affil[[-affiliation.index-]]{[-affiliation.value-]}
-[# endfor #]
+[# endfor -#]
 
 [#- if parts.abstract -#]
 \abstract{
