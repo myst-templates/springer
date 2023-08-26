@@ -28,7 +28,7 @@ bibliography:
   - sn-bibliography.bib
 export:
   - format: pdf+tex
-    template: ../.
+    template: ../../.
     reference_style: mathphys 
     formatting: twocolumn
     line_numbers: false
