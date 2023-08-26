@@ -34,6 +34,7 @@ export:
     line_numbers: false
     numbered_referencing: false
     unnumbered_headings: false
+    theorem_style: one
 ---
 
 %%==================================%%
@@ -92,11 +93,11 @@ one can use the equation or align environments:
 \|\tilde{X}(k)\|^2 \leq\frac{\sum\limits_{i=1}^{p}\left\|\tilde{Y}_i(k)\right\|^2+\sum\limits_{j=1}^{q}\left\|\tilde{Z}_j(k)\right\|^2 }{p+q}.
 ```
 where,
-```{math}
-:label: eq2
-D_\mu &=  \partial_\mu - ig \frac{\lambda^a}{2} A^a_\mu \nonumber \\
-F^a_{\mu\nu} &= \partial_\mu A^a_\nu - \partial_\nu A^a_\mu + g f^{abc} A^b_\mu A^a_\nu
-```
+%%```{math}
+%%:label: eq2
+%%D_\mu &=  \partial_\mu - ig \frac{\lambda^a}{2} A^a_\mu \nonumber \\
+%%F^a_{\mu\nu} &= \partial_\mu A^a_\nu - \partial_\nu A^a_\mu + g f^{abc} A^b_\mu A^a_\nu
+%%```
 Notice the use of ```\nonumber``` in the align environment at the end
 of each line, except the last, so as not to produce equation numbers on
 lines where no equation numbers are required. The ```\label{}``` command
@@ -240,7 +241,7 @@ A fast exponentiation procedure:
 
 %\lstset{texcl=true,basicstyle=\small\sf,commentstyle=\small\rm,mathescape=true,escapeinside={(*}{*)}}
 %\begin{lstlisting}
-```{code-block} 
+```{code-block} pascal
 begin
   for $i:=1$ to $10$ step $1$ do
       expt($2,i$);  
@@ -351,12 +352,12 @@ For mathematics journals, theorem styles can be included as shown in the followi
 %%Example theorem text. 
 %%\end{theorem}
 
-:::{prf:theorem} Theorem subhead
-:label: thm1
-Example theorem text. Example theorem text. Example theorem text. Example theorem text. Example theorem text. 
-Example theorem text. Example theorem text. Example theorem text. Example theorem text. Example theorem text. 
-Example theorem text. 
-:::
+%%:::{prf:theorem} Theorem subhead
+%%:label: thm1
+%%Example theorem text. Example theorem text. Example theorem text. Example theorem text. Example theorem text. 
+%%Example theorem text. Example theorem text. Example theorem text. Example theorem text. Example theorem text. 
+%%Example theorem text. 
+%%:::
 
 Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
 
@@ -365,11 +366,11 @@ Sample body text. Sample body text. Sample body text. Sample body text. Sample b
 %%Example proposition text. Example proposition text. Example proposition text. Example proposition text. Example proposition text. 
 %%\end{proposition}
 
-:::{prf:proposition}
-:label: prop1
-Example proposition text. Example proposition text. Example proposition text. Example proposition text. Example proposition text. 
-Example proposition text. Example proposition text. Example proposition text. Example proposition text. Example proposition text.
-:::
+%%:::{prf:proposition}
+%%:label: prop1
+%%Example proposition text. Example proposition text. Example proposition text. Example proposition text. Example proposition text. 
+%%Example proposition text. Example proposition text. Example proposition text. Example proposition text. Example proposition text.
+%%:::
 
 Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
 
@@ -379,11 +380,11 @@ Sample body text. Sample body text. Sample body text. Sample body text. Sample b
 %%at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. 
 %%\end{example}
 
-:::{prf:example}
-Phasellus adipiscing semper elit. Proin fermentum massa
-ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend
-at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. 
-:::
+%%:::{prf:example}
+%%Phasellus adipiscing semper elit. Proin fermentum massa
+%%ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend
+%%at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. 
+%%:::
 
 Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
 
@@ -393,11 +394,11 @@ Sample body text. Sample body text. Sample body text. Sample body text. Sample b
 %%at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. 
 %%\end{remark}
 
-:::{prf:remark}
-Phasellus adipiscing semper elit. Proin fermentum massa
-ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend
-at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem.
-:::
+%%:::{prf:remark}
+%%Phasellus adipiscing semper elit. Proin fermentum massa
+%%ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend
+%%at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem.
+%%:::
 
 Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
 
@@ -405,9 +406,9 @@ Sample body text. Sample body text. Sample body text. Sample body text. Sample b
 %%Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. 
 %%\end{definition}
 
-:::{prf:definition} Definition sub head
-Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text.
-:::
+%%:::{prf:definition} Definition sub head
+%%Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text. Example definition text.
+%%:::
 
 Additionally a predefined `proof` environment is available: ```\begin{proof}...\end{proof}```. This prints a `Proof` head in italic font style and the `body text` in roman font style with an open square at the end of each proof environment. 
 
@@ -415,9 +416,9 @@ Additionally a predefined `proof` environment is available: ```\begin{proof}...\
 %%Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. 
 %%\end{proof}
 
-:::{prf:proof}
-Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. 
-:::
+%%:::{prf:proof}
+%%Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. 
+%%:::
 
 Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
 
@@ -425,9 +426,9 @@ Sample body text. Sample body text. Sample body text. Sample body text. Sample b
 %%Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. 
 %%\end{proof}
 
-:::{prf:proof} Proof of [](#thm1)
-Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. 
-:::
+%%:::{prf:proof} Proof of [](#thm1)
+%%Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. Example for proof text. 
+%%:::
 
 For a quote environment, use `\begin{quote}...\end{quote}`
 %%\begin{quote}
