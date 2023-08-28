@@ -29,7 +29,7 @@ affiliations:
     postal_code: '100190'
     state: State 1
     country: Country 1
-    collaboration: true
+    collaboration: false
   - id: aff2
     name: Affiliation 2
     department: Department 2
@@ -39,7 +39,7 @@ affiliations:
     postal_code: EA10587
     state: State 2
     country: Country 2
-    collaboration: true
+    collaboration: false
   - id: aff3
     name: Affiliation 3
     department: Department 3
@@ -49,7 +49,7 @@ affiliations:
     postal_code: EA10587
     state: State 3
     country: Country 3
-    collaboration: true
+    collaboration: false
 
 keywords:
   - Keyword1
