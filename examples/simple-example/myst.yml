@@ -2,28 +2,8 @@
 version: 1
 project:
   title: Example title
-  description: This is an example article for an APS journal article.
-  keywords:
-    - Comic
-    - Walt Disney
-  authors:
-    - name: Bugs Bunny
-      orcid: 0000-0002-5591-9220
-      affiliations:
-        - Looney Tune Studios
-      collaborations:
-        - cool collaboration
-    - name: Roger Rabbit
-      corresponding: true
-      email: Roger.Rabbit@LooneyTuneStudios.com
-      website: https://www.looneytunestudio.com
-      affiliations:
-        -  Looney Tune Studios
-    - name: Mickey Mouse
-      affiliations:
-        - Disney World
-      website: https://www.disneyworld.com
-  github: https://github.com/dressedfez/myst_template_physical_review_journals
+  description: This is an example article for an Springer journal article.  
+  github: https://github.com/dressedfez/springer
   # bibliography: []
   license: CC-BY-4.0
 site:
