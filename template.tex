@@ -95,14 +95,14 @@
 
 [#- for affiliation in doc.affiliations #]
 \affil[[-affiliation.index-]]{
-    [#- if affiliation.department #]\orgdiv{[-affiliation.department-]} [# endif -#]
-    [#- if affiliation.institution #]\orgname{[-affiliation.institution-]} [# endif -#]
+    [#- if affiliation.value.department #]\orgdiv{[-affiliation.value.department-]}[# endif -#]
+    [#- if affiliation.value.institution #]\orgname{[-affiliation.value.institution-]}[# endif -#]
     \orgaddress{
-        [#- if affiliation.address #]\street{[-affiliation.address-]} [# endif -#]
-        [#- if affiliation.city #]\city{[-affiliation.city-]} [# endif -#]
-        [#- if affiliation.postcode #]\postcode{[-affiliation.postcode-]} [# endif -#]
-        [#- if affiliation.state #]\state{[-affiliation.state-]} [# endif -#]
-        [#- if affiliation.country #]\country{[-affiliation.country-]} [# endif -#]
+        [#- if affiliation.value.address #]\street{[-affiliation.value.address-]}[# endif -#]
+        [#- if affiliation.value.city #]\city{[-affiliation.value.city-]}[# endif -#]
+        [#- if affiliation.value.postcode #]\postcode{[-affiliation.value.postcode-]}[# endif -#]
+        [#- if affiliation.value.state #]\state{[-affiliation.value.state-]}[# endif -#]
+        [#- if affiliation.value.country #]\country{[-affiliation.value.country-]}[# endif -#]
     }
 }
 [# endfor -#]
