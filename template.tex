@@ -95,16 +95,15 @@
 
 [#- for affiliation in doc.affiliations #]
 \affil[[-affiliation.index-]]{
-    [#- if affiliation.value.department #]\orgdiv{[-affiliation.value.department-]}[# endif -#]
-    [#- if affiliation.value.institution #]\orgname{[-affiliation.value.institution-]}[# endif -#]
-    \orgaddress{
-        [#- if affiliation.value.address #]\street{[-affiliation.value.address-]}[# endif -#]
-        [#- if affiliation.value.city #]\city{[-affiliation.value.city-]}[# endif -#]
-        [#- if affiliation.value.postcode #]\postcode{[-affiliation.value.postcode-]}[# endif -#]
-        [#- if affiliation.value.state #]\state{[-affiliation.value.state-]}[# endif -#]
-        [#- if affiliation.value.country #]\country{[-affiliation.value.country-]}[# endif -#]
-    }
-}
+        \orgdiv{[- affiliation.value.department -]}
+        \orgname{[-  affiliation.value.institution -]}
+        \orgname{[- affiliation.value.name -]}
+        \orgaddress{
+            \street{[- affiliation.value.address -]}
+            \city{[- affiliation.value.city -]}
+            \postcode{[- affiliation.valuepostal_code -]}
+            \state{[- affiliation.value.state -]}
+            \country{[- affiliation.value.country-]}}}
 [# endfor -#]
 
 [#- if parts.abstract -#]

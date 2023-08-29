@@ -21,34 +21,34 @@ authors:
 
 affiliations:
   - id: aff1
-    name: Affiliation 1 
-    department: Department 1
-    institution: Organization 1
-    address: Street 1
-    city: City 1
-    postal_code: '100190'
-    state: State 1
-    country: Country 1
+    name: 'Affiliation 1,  '
+    department: 'Department 1, '
+    institution: 'Organization 1, '
+    address: 'Street 1, '
+    city: 'City 1, '
+    postal_code: ' 100190, '
+    state: 'State 1, '
+    country: 'Country 1'
     collaboration: false
   - id: aff2
-    name: Affiliation 2
-    department: Department 2
-    institution: Organization 2
-    address: Street 2
-    city: City 2
-    postal_code: EA10587
-    state: State 2
-    country: Country 2
+    name: 'Affiliation 2, '
+    department: 'Department 2, '
+    institution: 'Organization 2, '
+    address: 'Street 2, '
+    city: 'City 2, '
+    postal_code: 'EA10587, '
+    state: 'State 2, '
+    country: 'Country 2'
     collaboration: false
   - id: aff3
-    name: Affiliation 3
-    department: Department 3
-    institution: Organization 3
-    address: Street 3
-    city: City 3
-    postal_code: EA10587
-    state: State 3
-    country: Country 3
+    name: 'Affiliation 3, '
+    department: 'Department 3, '
+    institution: 'Organization 3, '
+    address: 'Street 3, '
+    city: 'City 3, '
+    postal_code: 'EA10587, '
+    state: 'State 3, '
+    country: 'Country 3'
     collaboration: false
 
 keywords:
