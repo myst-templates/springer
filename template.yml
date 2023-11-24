@@ -134,6 +134,7 @@ files:
   - sn-jnl.cls
   - sn-apacite.bst
   - sn-aps.bst
+  - sn-basic.bst
   - sn-chicago.bst
   - sn-mathphys.bst
   - sn-nature.bst
@@ -155,4 +156,6 @@ packages:
   - multirow
   - textcomp
   - xcolor
+  - lineno
+  - etoolbox
 myst: v1

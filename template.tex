@@ -10,7 +10,6 @@
     [#- if options.reference_style == "vancouver" -#] sn-vancouver [#- endif -#]
     [#- if options.pdf_latex -#]                     , pdflatex    [#- endif -#]
     [#- if options.referee -#]                       , referee     [#- endif -#]
-    [#- if options.line_numbers -#]                  , lineno      [#- endif -#]
     [#- if options.numbered_referencing -#]          , Numbered    [#- endif -#]
     [#- if options.formatting == "twocolumn" -#]     , iicol       [#- endif -#]
     ]{sn-jnl}
@@ -18,6 +17,7 @@
 
 \usepackage{graphicx}%
 \usepackage{multirow}%
+\usepackage[mathlines]{lineno}
 \usepackage{amsmath,amssymb,amsfonts}%
 \usepackage{amsthm}
 \usepackage{mathrsfs}
@@ -30,6 +30,51 @@
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
 \usepackage{listings}
+\usepackage{etoolbox}
+
+
+% line numbering of equation lines using amsmath (https://tex.stackexchange.com/questions/461186/how-to-use-lineno-with-amsmath-align)
+%% Patch 'normal' math environments:
+\newcommand*\linenomathpatch[1]{%
+  \cspreto{#1}{\linenomath}%
+  \cspreto{#1*}{\linenomath}%
+  \csappto{end#1}{\endlinenomath}%
+  \csappto{end#1*}{\endlinenomath}%
+}
+%% Patch AMS math environments:
+\newcommand*\linenomathpatchAMS[1]{%
+  \cspreto{#1}{\linenomathAMS}%
+  \cspreto{#1*}{\linenomathAMS}%
+  \csappto{end#1}{\endlinenomath}%
+  \csappto{end#1*}{\endlinenomath}%
+}
+
+%% Definition of \linenomathAMS depends on whether the mathlines option is provided
+\expandafter\ifx\linenomath\linenomathWithnumbers
+  \let\linenomathAMS\linenomathWithnumbers
+  %% The following line gets rid of an extra line numbers at the bottom:
+  \patchcmd\linenomathAMS{\advance\postdisplaypenalty\linenopenalty}{}{}{}
+\else
+  \let\linenomathAMS\linenomathNonumbers
+\fi
+
+\linenomathpatch{equation}
+\linenomathpatchAMS{gather}
+\linenomathpatchAMS{multline}
+\linenomathpatchAMS{align}
+\linenomathpatchAMS{alignat}
+\linenomathpatchAMS{flalign}
+
+% Disable line numbering during measurement step of multline
+\makeatletter
+\patchcmd{\mmeasure@}{\measuring@true}{
+  \measuring@true
+  \ifnum-\linenopenaltypar>\interdisplaylinepenalty
+    \advance\interdisplaylinepenalty-\linenopenalty
+  \fi
+  }{}{}
+\makeatother
+
 
 
 [- IMPORTS -]
@@ -64,6 +109,10 @@
 \newtheorem{remark}{Remark}
 \newtheorem{definition}{Definition}
 [# endif -#]
+
+[#- if options.line_numbers -#] 
+\linenumbers
+[#- endif -#]
 
 \begin{document}
 
