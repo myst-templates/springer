@@ -140,6 +140,9 @@
     [# endif -#]
     }     
 [# endif -#]
+[# if author.equal_contributor #]
+\equalcont{These authors contributed equally to this work.}
+[# endif -#]
 [# endfor -#]
 
 [#- for affiliation in doc.affiliations #]
