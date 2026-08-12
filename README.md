@@ -39,15 +39,17 @@ myst build sn-article.md --pdf
 
 The generated PDF is written to `_build/exports/sn-article.pdf`. The corresponding generated LaTeX project is under `_build/exports/sn-article_pdf_tex/`.
 
-To use the template in another local MyST project, point the export's `template` field at the repository directory:
+To use the published template in another MyST project, reference it by name:
 
 ```yaml
 export:
   - format: pdf+tex
-    template: ../path/to/springer
+    template: springer
 ```
 
-Then run `myst build your-article.md --pdf` from that project. See [`examples/sn-article`](./examples/sn-article/) for a complete manuscript. [`examples/simple-example`](./examples/simple-example/) is a shorter demonstration, but its referenced `sn-bibliography.bib` must be supplied before building it.
+MyST resolves `springer` through the community template registry and downloads it automatically. Then run `myst build your-article.md --pdf` from that project.
+
+When developing this template locally, replace `springer` with a path to the repository, such as `../path/to/springer`, to build against your uncommitted changes. See [`examples/sn-article`](./examples/sn-article/) for a complete manuscript. [`examples/simple-example`](./examples/simple-example/) is a shorter demonstration, but its referenced `sn-bibliography.bib` must be supplied before building it.
 
 ## Minimal manuscript
 
@@ -75,7 +77,7 @@ bibliography:
   - references.bib
 export:
   - format: pdf+tex
-    template: ../path/to/springer
+    template: springer
     reference_style: mathphys
     numbered_referencing: true
     formatting: onecolumn
