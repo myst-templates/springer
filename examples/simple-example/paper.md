@@ -7,11 +7,13 @@ authors:
       - aff1
       - aff2
     corresponding: true
+    equal_contributor: true
     email: iauthor@gmail.com
   - name: Second Author
     affiliations:
       - aff2
       - aff3
+    equal_contributor: true
     email: iiauthor@gmail.com
   - name: Third Author
     affiliations:
