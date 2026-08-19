@@ -123,22 +123,17 @@
 \author*[[- author.affiliations | join(',', 'index') -]]{
     [#- if author.given_name #]\fnm{[-author.given_name-]} [# endif -#]
     [#- if author.surname #]   \sur{[-author.surname-]}    [# endif -#]
-    [#- if author.email #]     
-        \email{[-author.email-]}
-    [# else #]
-        \nomail    
-    [# endif -#]
-    } 
+    }
 [# else #]
 \author[[- author.affiliations | join(',', 'index') -]]{
     [#- if author.given_name #]\fnm{[-author.given_name-]} [# endif -#]
     [#- if author.surname #]   \sur{[-author.surname-]}    [# endif -#]
-    [#- if author.email #] 
-        \email{[-author.email-]}
-    [# else #]
-        \nomail
-    [# endif -#]
-    }     
+    }
+[# endif -#]
+[#- if author.email #]
+\email{[-author.email-]}
+[# else #]
+\nomail
 [# endif -#]
 [# if author.equal_contributor #]
 \equalcont{These authors contributed equally to this work.}
